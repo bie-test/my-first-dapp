@@ -1,7 +1,7 @@
 App = {
      web3Provider: null,
      contracts: {},
-
+     account: 0x0,
      init: function() {
       // load articleRow
       // var articlesRow = $('#articlesRow');
@@ -17,20 +17,20 @@ App = {
       return App.initWeb3();
  },
 
+ initWeb3: function() {
+      App.web3Provider  = new Web3.providers.HttpProvider('http://localhost:7545');
+     
 
+       web3 = new Web3(App.web3Provider);
 
-     initWeb3: function() {
-           
-      App.web3Provider = new web3.provider.httpProvider('http://localhost:7545');
-      web3 = new web3(App.web3Provider);
-      App.displayaccountinfo();
-      
+       App.displayAccountInfo();
 
-          return App.initContract();
-     },
+       return App.initContract();
+},
+
 displayaccountinfo: function() {
-      
-}
+
+},
      initContract: function() {
           /*
            * Replace me...
