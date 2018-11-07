@@ -28,7 +28,20 @@ App = {
        return App.initContract();
 },
 
-displayaccountinfo: function() {
+displayAccountInfo: function() {
+	web3.eth.getCoinbase(function(err, balance){
+		if(err === null){
+			App.account = account;
+			$('#account').text(account);
+			
+			web3.eth.getBalance(account, function(err, balance) {
+              if(err === null) {
+                $('#accountBalance').text(web3.fromWei(balance, "ether") + " ETH");
+              }
+            })
+		}
+	})
+
 
 },
      initContract: function() {
